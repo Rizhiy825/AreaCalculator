@@ -9,14 +9,14 @@ internal class TriangleTests
     [Test]
     public void CalculateArea_RightTriangle_ReturnsCorrectArea()
     {
-        double sideA = 3;
-        double sideB = 4;
-        double sideC = 5;
-        double expectedArea = 6;
+        var sideA = 3;
+        var sideB = 4;
+        var sideC = 5;
+        var expectedArea = 6;
 
-        Triangle triangle = new Triangle(sideA, sideB, sideC);
+        var triangle = new Triangle(sideA, sideB, sideC);
         
-        double actualArea = triangle.CalculateArea();
+        var actualArea = triangle.CalculateArea();
         
         actualArea.Should().Be(expectedArea);
     }
@@ -24,14 +24,14 @@ internal class TriangleTests
     [Test]
     public void CalculateArea_NonRightTriangle_ReturnsCorrectArea()
     {
-        double sideA = 5;
-        double sideB = 6;
-        double sideC = 7;
-        double expectedArea = 14.696938456699069;
+        var sideA = 5;
+        var sideB = 6;
+        var sideC = 7;
+        var expectedArea = 14.696938456699069;
 
-        Triangle triangle = new Triangle(sideA, sideB, sideC);
+        var triangle = new Triangle(sideA, sideB, sideC);
         
-        double actualArea = triangle.CalculateArea();
+        var actualArea = triangle.CalculateArea();
         
         actualArea.Should().BeApproximately(expectedArea, 1E-10);
     }
@@ -58,7 +58,7 @@ Validation failed:
         int sideC, 
         string errorMessage)
     {
-        Action action = () => new Triangle(sideA, sideB, sideC);
+        var action = () => new Triangle(sideA, sideB, sideC);
         
         action.Should().Throw<FluentValidation.ValidationException>()
             .WithMessage(errorMessage);
@@ -67,14 +67,34 @@ Validation failed:
     [Test]
     public void CalculateArea_RealyBigSides_ReturnsInfinity()
     {
-        double sideA = Double.MaxValue;
-        double sideB = Double.MaxValue;
-        double sideC = Double.MaxValue;
+        var sideA = Double.MaxValue;
+        var sideB = Double.MaxValue;
+        var sideC = Double.MaxValue;
 
-        Triangle triangle = new Triangle(sideA, sideB, sideC);
+        var triangle = new Triangle(sideA, sideB, sideC);
 
-        double actualArea = triangle.CalculateArea();
+        var actualArea = triangle.CalculateArea();
 
         actualArea.Should().Be(double.PositiveInfinity);
+    }
+
+    [TestCase(3, 4, 5)]
+    [TestCase(3, 5, 4)]
+    [TestCase(5, 4, 3)]
+    public void IsRight_RightTriangle_ReturnsTrue(int sideA, int sideB, int sideC)
+    {
+        var triangle = new Triangle(sideA, sideB, sideC);
+
+        triangle.IsRight.Should().BeTrue();
+    }
+
+    [TestCase(4, 4, 5)]
+    [TestCase(2, 3, 4)]
+    [TestCase(1, 1, 1)]
+    public void IsRight_NotRightTriangle_ReturnsFalse(int sideA, int sideB, int sideC)
+    {
+        var triangle = new Triangle(sideA, sideB, sideC);
+
+        triangle.IsRight.Should().BeFalse();
     }
 }
