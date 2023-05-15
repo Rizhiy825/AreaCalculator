@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "MP9syKpZLrlIOpcZK9k6/Alz5mUgVtSPDA+YrNPupcP+aXNTGuWwPESEAXhYOnbBTAND9bMOuLRkqAc+ZawUXA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Artemii\\source\\repos\\AreaCalculator\\AreaCalculator\\AreaCalculator.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Artemii\\.nuget\\packages\\fluentvalidation\\11.5.2\\fluentvalidation.11.5.2.nupkg.sha512"
+  ],
+  "logs": []
+}
