@@ -1,40 +1,40 @@
-# AreaCalculator library
+# AreaCalculator Library
 
-## Основные возможности
+## Main features
 
-AreaCalculator - библиотека, предназначенная для поставки внешним клиентам, которая умеет вычислять площадь различных геометрических фигур, включая круг и треугольник. При создании ипользовалась FluentValidation - библиотека для создания правил валидации входных данных
+AreaCalculator is a biotech designed for installation in external classrooms, which allows you to calculate various geometric shapes, including a circle and a triangle. For the first time, free validation libraries were used to create a validation government for external data.h
 
-#### Ключевые функции:
+#### Key functions:
 
--  **Вычисление площади круга по заданному радиусу**
--  **Вычисление площади треугольника по заданным трем сторонам**
--  **Проверка созданного треугольника на то, является ли он прямоугольным**
+- **Calculating the area of a circle based on a given radius**
+- **Calculation of the area of a triangle on the specified three sides**
+- **Checking the created triangle to see if it is rectangular**
 
-#### Общий пример использования библиотеки:
+#### General example of using the library:
 ~~~
 using AreaCalculator;
 
 public void Foo()
-    {
-        IShape figure;
+{
+IShape shape;
 
         if (condition)
         {
-            figure = new Circle(10);
+figure = new circle(10);
         }
-        else
+more
         {
-            figure = new Triangle(10, 10, 10);
+figure = new triangle(10, 10, 10);
         }
         
-        var area = figure.CalculateArea();
+        variable area = shape.Calculate the area();
     }
-    
+
 public void Boo()
-    {
-        var triangle = new Triangle(3, 4, 5);
+{
+var triangle = new triangle(3, 4, 5);
         
         // true
-        var isRight = triangle.IsRight;
+        var isRight = triangle.isRight;
     }
 ~~~
